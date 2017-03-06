@@ -16,6 +16,7 @@ You can check if the script is working by sending SIGUSR1 to the process. When t
 
 ## What does it run?
 The script is designed to run debugging in under 5 seconds. Currently, it executes the following scripts (in order) with optimizations for fast running:
+
 1. `diff` to compare the expected string to the returned string
 1. `tcpdump` to show the traffic during the curl request
 1. `traceroute` to show the current path to the server
