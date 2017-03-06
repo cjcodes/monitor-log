@@ -7,7 +7,7 @@ All output from this command is piped directly to stdout.
 ## Getting Started
 Note: this script relies on bash. It cannot be run as sh.
 
-1. Clone this repo (or download the [latest release](releases/latest))
+1. Clone this repo (or download the [latest release](archive/master.zip))
 1. Copy the .env.example file to .env and configure. Each configuration option is commented inline.
 1. Run the command in a screen session, configure it with systemd, or run with nohup.
 
