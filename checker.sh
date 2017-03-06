@@ -68,7 +68,11 @@ report() {
   RETURN_CODE=$2
 
   header 'return code of curl'
-  echo $RETURN_CODE
+  if [ $RETURN_CODE == 99 ]; then
+    echo 0
+  else
+    echo $RETURN_CODE
+  fi
 
   header 'diff of expected vs received'
   diff <(echo "$HEALTHY_STRING") <(echo "$TEXT_RECEIVED")
@@ -94,11 +98,15 @@ check() {
   OUT=`curl -f -s $URL 2>&1`
   RETURN=$?
 
-  if [[ $HEALTHY_STRING == *$OUT* ]]; then
-    echo $OUT
+  if [[ $OUT == *"$HEALTHY_STRING"* ]]; then
     return $RETURN
   else
-    return $RETURN
+    echo $OUT
+    if [ $RETURN == 0 ]; then
+      return 99
+    else
+      return $RETURN
+    fi
   fi
 }
 
@@ -113,6 +121,12 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 echo "Beginning monitor script to $URL every $INTERVAL seconds"
+
+if [ "$HEALTHY_STRING" != "" ]; then
+  echo "Checking for string: $HEALTHY_STRING"
+else
+  echo "Not checking string"
+fi
 echo "My PID: $$"
 echo "You can test that this script is running by running \`kill -SIGUSR1 $$\`, then checking the file you're piping to."
 
