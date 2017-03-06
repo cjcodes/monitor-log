@@ -1,0 +1,109 @@
+Beginning monitor script to https://www.google.com/ every 5 seconds
+My PID: 9580
+You can test that this script is running by running `kill -SIGUSR1 9580`, then checking the file you're piping to.
+
+==============================
+ DOWN DOWN DOWN
+==============================
+Mon Mar  6 14:52:48 EST 2017
+
+==============================
+ return code of curl
+==============================
+7
+
+==============================
+ diff of expected vs received
+==============================
+
+==============================
+ tcpdump of traffic
+==============================
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on any, link-type LINUX_SLL (Linux cooked), capture size 262144 bytes
+
+
+0 packets captured
+6 packets received by filter
+0 packets dropped by kernel
+
+==============================
+ traceroute to www.google.com
+==============================
+traceroute to www.google.com (127.0.0.1), 20 hops max, 60 byte packets
+ 1  localhost (127.0.0.1)  0.135 ms  0.053 ms  0.061 ms
+
+==============================
+ PING to www.google.com
+==============================
+PING www.google.com (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.156 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.097 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.113 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=4 ttl=64 time=0.098 ms
+
+--- www.google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3074ms
+rtt min/avg/max/mdev = 0.097/0.116/0.156/0.023 ms
+
+==============================
+ STILL DOWN
+==============================
+Mon Mar  6 14:52:57 EST 2017
+
+==============================
+ STILL DOWN
+==============================
+Mon Mar  6 14:53:02 EST 2017
+
+==============================
+ BACK UP
+==============================
+Mon Mar  6 14:53:07 EST 2017
+
+==============================
+ return code of curl
+==============================
+
+
+==============================
+ diff of expected vs received
+==============================
+
+==============================
+ tcpdump of traffic
+==============================
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on any, link-type LINUX_SLL (Linux cooked), capture size 262144 bytes
+
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+
+==============================
+ traceroute to www.google.com
+==============================
+traceroute to www.google.com (172.217.0.36), 20 hops max, 60 byte packets
+ 1  gateway (10.54.16.1)  0.409 ms  0.329 ms  0.306 ms
+ 2  104.218.143.65 (104.218.143.65)  1.438 ms  1.361 ms  1.619 ms
+ 3  ae6.er2.lga5.us.zip.zayo.com (209.133.34.121)  1.538 ms  1.457 ms  1.374 ms
+ 4  ae5.cr2.lga5.us.zip.zayo.com (64.125.21.82)  6.622 ms  6.537 ms  1.548 ms
+ 5  ae3.er4.lga5.us.zip.zayo.com (64.125.31.246)  1.466 ms  1.458 ms  1.487 ms
+ 6  72.14.223.26 (72.14.223.26)  1.409 ms  1.670 ms  1.485 ms
+ 7  209.85.143.89 (209.85.143.89)  1.996 ms  9.546 ms  9.475 ms
+ 8  209.85.245.179 (209.85.245.179)  2.597 ms  2.690 ms  2.781 ms
+ 9  lga15s43-in-f4.1e100.net (172.217.0.36)  2.080 ms  2.080 ms  1.992 ms
+
+==============================
+ PING to www.google.com
+==============================
+PING www.google.com (172.217.0.36) 56(84) bytes of data.
+64 bytes from lga15s43-in-f4.1e100.net (172.217.0.36): icmp_seq=1 ttl=56 time=1.94 ms
+64 bytes from lga15s43-in-f4.1e100.net (172.217.0.36): icmp_seq=2 ttl=56 time=2.21 ms
+64 bytes from lga15s43-in-f4.1e100.net (172.217.0.36): icmp_seq=3 ttl=56 time=2.25 ms
+64 bytes from lga15s43-in-f4.1e100.net (172.217.0.36): icmp_seq=4 ttl=56 time=2.21 ms
+
+--- www.google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 1.947/2.156/2.252/0.130 ms
+
