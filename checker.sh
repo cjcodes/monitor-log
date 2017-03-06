@@ -121,7 +121,6 @@ trap 'echo; echo "Still here!"; date; echo;' SIGUSR1
 
 while :
 do
-  echo $INTERVAL
   OUT=`check`
   RETURN=$?
   if [ $RETURN != 0 ]; then

@@ -24,5 +24,5 @@ The script is designed to run debugging in under 5 seconds. Currently, it execut
 ## What will I get?
 You'll get the output of these commands, along with timestamps of when things went down and when they came back up.
 
-[Here's an example file](sample-output.txt)
+[Here's an example file](sample-output.txt) produced by temporarily overriding the DNS of google.com to 127.0.0.1 in my /etc/hosts file.
 
